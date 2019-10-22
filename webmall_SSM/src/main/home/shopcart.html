@@ -1,0 +1,377 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>购物车页面</title>
+
+<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet"
+	type="text/css" />
+<link href="../basic/css/demo.css" rel="stylesheet" type="text/css" />
+<link href="../css/cartstyle.css" rel="stylesheet" type="text/css" />
+<link href="../css/optstyle.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+
+</head>
+
+<body>
+
+	<!--顶部导航条 -->
+	<div class="am-container header">
+		<ul class="message-l">
+			<div class="topMessage">
+				<div class="menu-hd">
+					<a href="#" target="_top" class="h">亲，请登录</a> <a href="#"
+						target="_top">免费注册</a>
+				</div>
+			</div>
+		</ul>
+		<ul class="message-r">
+			<div class="topMessage home">
+				<div class="menu-hd">
+					<a href="#" target="_top" class="h">商城首页</a>
+				</div>
+			</div>
+			<div class="topMessage my-shangcheng">
+				<div class="menu-hd MyShangcheng">
+					<a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
+				</div>
+			</div>
+			<div class="topMessage mini-cart">
+				<div class="menu-hd">
+					<a id="mc-menu-hd" href="#" target="_top"><i
+						class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong
+						id="J_MiniCartNum" class="h">0</strong></a>
+				</div>
+			</div>
+			<div class="topMessage favorite">
+				<div class="menu-hd">
+					<a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
+				</div>
+		</ul>
+	</div>
+
+	<!--悬浮搜索框-->
+
+	<div class="nav white">
+		<div class="logo">
+			<img src="../images/logo.png" />
+		</div>
+		<div class="logoBig">
+			<li><img src="../images/logobig.png" /></li>
+		</div>
+
+		<div class="search-bar pr">
+			<a name="index_none_header_sysc" href="#"></a>
+			<form>
+				<input id="searchInput" name="index_none_header_sysc" type="text"
+					placeholder="搜索" autocomplete="off"> <input
+					id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
+					type="submit">
+			</form>
+		</div>
+	</div>
+
+	<div class="clear"></div>
+
+	<!--购物车 -->
+	<div class="concent">
+		<div id="cartTable">
+			<div class="cart-table-th">
+				<div class="wp">
+					<div class="th th-chk">
+						<div id="J_SelectAll1" class="select-all J_SelectAll"></div>
+					</div>
+					<div class="th th-item">
+						<div class="td-inner">商品信息</div>
+					</div>
+					<div class="th th-price">
+						<div class="td-inner">单价</div>
+					</div>
+					<div class="th th-amount">
+						<div class="td-inner">数量</div>
+					</div>
+					<div class="th th-sum">
+						<div class="td-inner">金额</div>
+					</div>
+					<div class="th th-op">
+						<div class="td-inner">操作</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear"></div>
+          <form action="" id="out" method="post"></form>
+			<tr class="item-list">
+				<div class="bundle  bundle-last ">
+					<div class="clear"></div>
+					<div class="bundle-main">
+
+
+
+
+						<ul class="item-content clearfix">
+							<li class="td td-chk">
+								<div class="cart-checkbox ">
+									<input class="check" id="J_CheckBox_170037950254"
+										name="items[]" value="170037950254" type="checkbox"> <label
+										for="J_CheckBox_170037950254"></label>
+								</div>
+							</li>
+							<li class="td td-item">
+								<div class="item-pic">
+									<a href="#" target="_blank"
+										data-title="美康粉黛醉美东方唇膏口红正品 持久保湿滋润防水不掉色护唇彩妆"
+										class="J_MakePoint" data-point="tbcart.8.12"> <img
+										src="../images/kouhong.jpg_80x80.jpg"
+										class="itempic J_ItemImg"></a>
+								</div>
+								<div class="item-info">
+									<div class="item-basic-info">
+										<a href="#" target="_blank" title="美康粉黛醉美唇膏 持久保湿滋润防水不掉色"
+											class="item-title J_MakePoint" data-point="tbcart.8.11">美康粉黛醉美唇膏
+											持久保湿滋润防水不掉色</a>
+									</div>
+								</div>
+							</li>
+							<li class="td td-info">
+								<div class="item-props item-props-can">
+								</div>
+							</li>
+							<li class="td td-price">
+								<div class="item-price price-promo-promo">
+									<div class="price-content">
+										<div class="price-line">
+											<em class="J_Price price-now" name="s_price" tabindex="0">39.00</em>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="td td-amount">
+								<div class="amount-wrapper ">
+									<div class="item-amount ">
+										<div class="sl">
+											<input class="min am-btn" name="" type="button" value="-" />
+											<input class="text_box" name="number" type="text" value="3"
+												style="width: 30px;" /> <input class="add am-btn" name=""
+												type="button" value="+" />
+										</div>
+									</div>
+								</div>
+							</li>
+							<li class="td td-sum">
+								<div class="td-inner">
+									<em tabindex="0" name="c_price" class="J_ItemSum number">117</em>
+								</div>
+							</li>
+							<li class="td td-op">
+								<div class="td-inner">
+									<a title="移入收藏夹" class="btn-fav" href="#"> 移入收藏夹</a> <a
+										data-point-url="#" class="delete"> 删除</a>
+								</div>
+							</li>
+						</ul>
+
+
+
+
+					</div>
+				</div>
+			</tr>
+			<div class="clear"></div>
+            
+		</div>
+		<div class="clear"></div>
+
+		<div class="float-bar-wrapper">
+			<div id="J_SelectAll2" class="select-all J_SelectAll">
+				<div class="cart-checkbox">
+					<input class="check-all check" id="J_SelectAllCbx2"
+						name="select-all" value="true" type="checkbox"> <label
+						for="J_SelectAllCbx2"></label>
+				</div>
+				<span>全选</span>
+			</div>
+			<div class="operations">
+				<a href="#" hidefocus="true" class="deleteAll">删除</a> <a href="#"
+					hidefocus="true" class="J_BatchFav">移入收藏夹</a>
+			</div>
+			<div class="float-bar-right">
+				<div class="amount-sum">
+					<span class="txt">已选商品</span> <em id="J_SelectedItemsCount">0</em><span
+						class="txt">件</span>
+					<div class="arrow-box">
+						<span class="selected-items-arrow"></span> <span class="arrow"></span>
+					</div>
+				</div>
+				<div class="price-sum">
+					<span class="txt">合计:</span> <strong class="price">¥<em
+						id="J_Total">0</em></strong>
+				</div>
+				<div class="btn-area">
+					<button href="pay.jsp" id="J_Go" class="submit-btn submit-btn-disabled"
+						aria-label="请注意如果没有选择宝贝，将无法结算" style="width: 80px; outline: 0px; border: 0px;"> <span>结&nbsp;算</span></button>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="footer">
+			<div class="footer-hd">
+				<p>
+					<a href="#">卓鼎教育</a> <b>|</b> <a href="#">商城首页</a> <b>|</b> <a
+						href="#">支付宝</a> <b>|</b> <a href="#">物流</a>
+				</p>
+			</div>
+			<div class="footer-bd">
+				<p style="text-align: center;">
+					<a href="#">合作伙伴</a> <a href="#">联系我们</a> <a href="#">网站地图</a> <em
+						style="text-align: center;">© 2015-2025 zking 版权所有</em>
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		//判断结算是否能被点击
+		var total = Number($("#J_Total").text());
+		if(total > 0){
+			$('#J_Go').removeAttr("disabled");
+		}else{
+			$('#J_Go').attr("disabled","");
+		}
+		//记录第一次数量框值;
+	var number_first;
+	$("[name='number']").focus(function() {
+		number_first = this.value;
+	});
+
+	$('[value="+"]').click(function () {
+		//找到数量文本框，并将数量文本框数量+1
+		var number = $(this).prev().val();
+		//获取改变之前的价格
+		var pre_price = count($(this),number);
+		//设置新值（数量+1）
+		$(this).prev().val(++number);
+		var next_price = count($(this),number);
+		//修改总价格
+		change_total(this,pre_price,next_price);
+	})
+	$('[value="-"]').click(function () {
+		//找到数量文本框，并将数量文本框数量+1
+		var number = $(this).next().val();
+		if(Number(number) <= 1) return;
+		//获取改变之前的价格
+		var pre_price = count($(this),number);
+		//设置新值（数量+1）
+		$(this).next().val(--number);
+		var next_price = count($(this),number);
+		change_total(this,pre_price,next_price);
+	})
+	
+	//当文本框发生改变时，执行计算总价
+	$("[name='number']").keyup(function () {
+		var reg = /^[1-9][0-9]*$/;
+		var number = this.value;
+		//匹配正则
+		if(!reg.test(number)){
+			this.value = number_first;
+		}
+		if(number == ""){
+			number = 1;
+			this.value = number;
+		}
+		var pre_price = $(this).parents("ul").find("c_price").text();
+		var next_price = count($(this),number);
+		change_total(this,pre_price,next_price);
+	});
+	//当文本数量发生改变时，改变总价格
+	function change_total(element,pre_price,next_price) {
+		//判断是否被选中
+		if($(element).parents('ul').find('[name="items[]"]')[0].checked){
+			total_price -= Number(pre_price);
+			total_price += Number(next_price);
+			$("#J_Total").text(total_price);
+			
+		}
+	}
+	//计算单个总价(当前元素--element,val---数量) 总价=数量*单价
+	function count(element,number) {
+		//获取单价---总价格=单价*数量
+		//通过父元素找子元素	
+		var price = $(element.parents("ul").find("[name='s_price']")).text();
+		$(element.parents("ul").find("[name='c_price']")).text(price*number);
+		//当前总价格返回
+		return $(element.parents("ul").find("[name='c_price']")).text();
+	}
+	
+	
+	//计算结算总价
+	var total_price = 0;
+	$("[name='items[]']").change(function() {
+		var price = Number($(this).parents("ul").find("[name='c_price']").text());		
+		if(this.checked){
+			total_price += price;
+		}else{
+			total_price -= price;
+		}
+		$("#J_Total").text(total_price);
+		//判断结算是否能被点击
+		if(total_price > 0){
+			$('#J_Go').removeAttr("disabled");
+		}else{
+			$('#J_Go').attr("disabled","");
+		}
+		$("#J_SelectAllCbx2").attr("checked",true);
+		$("[name='items[]']").each(function () {
+			if(!this.checked) $("#J_SelectAllCbx2").attr("checked",false);
+		});
+	});
+	//全选
+	$("#J_SelectAllCbx2").change(function() {
+		if(this.checked){
+			$("[name='items[]']").each(function() {
+				//判断复选框没有被选中
+				if(!this.checked){
+					//改变复选框状态
+					this.checked = true;
+					$(this).change();
+				}
+			});
+		}else{
+			$("[name='items[]']").each(function () {
+				if(this.checked) {
+					this.checked = false;
+					$(this).change();
+				}
+			});
+		}
+	});
+	
+	$("#J_Go").click(function() {
+		if(confirm("请问是否购买")){
+			$("#out").submit();
+		}
+	});
+	
+	$(".delete").click(function (){
+		$(this).parents("ul").remove();
+	});
+	
+	</script>
+	
+	<!--引导 -->
+	<div class="navCir">
+		<li><a href="home2.jsp"><i class="am-icon-home "></i>首页</a></li>
+		<li><a href="sort.jsp"><i class="am-icon-list"></i>分类</a></li>
+		<li class="active"><a href="shopcart.jsp"><i
+				class="am-icon-shopping-basket"></i>购物车</a></li>
+		<li><a href="../person/index.jsp"><i class="am-icon-user"></i>我的</a></li>
+	</div>
+</body>
+
+</html>

@@ -2,10 +2,16 @@
 
 spring:
   #springmvc视图解析器
-  mvc:
-   view:
-    prefix: / 
-    suffix: .jsp
+  #mvc:
+   #view:
+    #prefix: / 
+    #suffix: .jsp
+    
+  #thymeleaf视图解析器
+  thymeleaf:
+    prefix: /
+    suffix: .html 
+    
   #dataSource
   #datasource:
     #type: com.alibaba.druid.pool.DruidDataSource
