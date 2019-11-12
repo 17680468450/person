@@ -1,12 +1,16 @@
 package com.dzkj.pojo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class OrderAll {
-	private OrderTotal oTotal;
-	private List<OrderAbout> oAbouts;
+import javax.persistence.Id;
 
-	public OrderAll(OrderTotal oTotal, List<OrderAbout> oAbouts) {
+public class OrderAll  implements Serializable{
+	@Id
+	private Ordertotal oTotal;
+	private List<Orderabout> oAbouts;
+
+	public OrderAll(Ordertotal oTotal, List<Orderabout> oAbouts) {
 		super();
 		this.oTotal = oTotal;
 		this.oAbouts = oAbouts;
@@ -16,19 +20,19 @@ public class OrderAll {
 		super();
 	}
 
-	public OrderTotal getoTotal() {
+	public Ordertotal getoTotal() {
 		return oTotal;
 	}
 
-	public void setoTotal(OrderTotal oTotal) {
+	public void setoTotal(Ordertotal oTotal) {
 		this.oTotal = oTotal;
 	}
 
-	public List<OrderAbout> getoAbouts() {
+	public List<Orderabout> getoAbouts() {
 		return oAbouts;
 	}
 
-	public void setoAbouts(List<OrderAbout> oAbouts) {
+	public void setoAbouts(List<Orderabout> oAbouts) {
 		this.oAbouts = oAbouts;
 	}
   

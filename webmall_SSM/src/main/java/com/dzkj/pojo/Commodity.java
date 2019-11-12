@@ -1,41 +1,31 @@
 package com.dzkj.pojo;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 
-public class Commodity {
-    private int s_id;
+import javax.persistence.Id;
+
+public class Commodity  implements Serializable{
+	@Id
+    private Integer s_id;
     private String s_name;
-    private int s_price;
-    private int s_repertory;
-    private int s_sales;
-    private STopThree sThree;
+    private Integer s_price;
+    private Integer s_repertory;
+    private Integer s_sales;
+    private Integer s_three_id;
     private String s_url;
     private String s_describe;
     private String s_brand;
     
     
     
-	public Commodity(ResultSet rs) {
-		try {
-			this.s_id = rs.getInt("s_id");
-			this.s_name = rs.getString("s_name");
-			this.s_price = rs.getInt("s_price");
-			this.s_repertory = rs.getInt("s_repertory");
-			this.s_sales = rs.getInt("s_sales");
-			this.s_url = rs.getString("s_url");
-			this.s_describe = rs.getString("s_describe");
-			this.s_brand = rs.getString("s_brand");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	public Commodity() {
 		super();
 	}
-	public int getS_id() {
+	public Integer getS_id() {
 		return s_id;
 	}
-	public void setS_id(int s_id) {
+	public void setS_id(Integer s_id) {
 		this.s_id = s_id;
 	}
 	public String getS_name() {
@@ -44,29 +34,29 @@ public class Commodity {
 	public void setS_name(String s_name) {
 		this.s_name = s_name;
 	}
-	public int getS_price() {
+	public Integer getS_price() {
 		return s_price;
 	}
-	public void setS_price(int s_price) {
+	public void setS_price(Integer s_price) {
 		this.s_price = s_price;
 	}
-	public int getS_repertory() {
+	public Integer getS_repertory() {
 		return s_repertory;
 	}
-	public void setS_repertory(int s_repertory) {
+	public void setS_repertory(Integer s_repertory) {
 		this.s_repertory = s_repertory;
 	}
-	public int getS_sales() {
+	public Integer getS_sales() {
 		return s_sales;
 	}
-	public void setS_sales(int s_sales) {
+	public void setS_sales(Integer s_sales) {
 		this.s_sales = s_sales;
 	}
-	public STopThree getsThree() {
-		return sThree;
+	public Integer getS_three_id() {
+		return s_three_id;
 	}
-	public void setsThree(STopThree sThree) {
-		this.sThree = sThree;
+	public void setS_three_id(Integer s_three_id) {
+		this.s_three_id = s_three_id;
 	}
 	public String getS_url() {
 		return s_url;
@@ -85,6 +75,12 @@ public class Commodity {
 	}
 	public void setS_brand(String s_brand) {
 		this.s_brand = s_brand;
+	}
+	@Override
+	public String toString() {
+		return "Commodity [s_id=" + s_id + ", s_name=" + s_name + ", s_price=" + s_price + ", s_repertory="
+				+ s_repertory + ", s_sales=" + s_sales + ", s_three_id=" + s_three_id + ", s_url=" + s_url
+				+ ", s_describe=" + s_describe + ", s_brand=" + s_brand + "]";
 	}
     
 }

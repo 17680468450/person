@@ -1,38 +1,33 @@
 package com.dzkj.pojo;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 
-public class Foot {
-   private int id;
-	private int u_id;
-	private Commodity commodity;
+import javax.persistence.Id;
 
-	public Foot(ResultSet rs) {
-		try {
-			id = rs.getInt("id");
-			u_id = rs.getInt("u_id");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+public class Foot  implements Serializable{
+	@Id
+   private Integer id;
+	private Integer u_id;
+	private Commodity commodity;
 
 	public Foot() {
 		super();
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getU_id() {
+	public Integer getU_id() {
 		return u_id;
 	}
 
-	public void setU_id(int u_id) {
+	public void setU_id(Integer u_id) {
 		this.u_id = u_id;
 	}
 

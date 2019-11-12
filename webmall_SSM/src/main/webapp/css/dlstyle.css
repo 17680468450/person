@@ -66,6 +66,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #fff inset;}
 .verification {position: relative;}
 input#code {width: 80%;}
 #dyMobileButton{margin-left: 10px;border: 1px solid #DDD;padding: 0px;width: 15%;height: 40px;background: #F4F4F4 none repeat scroll 0% 0%;margin-top: 0px;text-align: center;line-height:40px;color: #333;text-decoration: none;position: absolute;right: 0px;bottom: 0px;}
+#dyEmailButton{margin-left: 10px;border: 1px solid #DDD;padding: 0px;width: 15%;height: 40px;background: #F4F4F4 none repeat scroll 0% 0%;margin-top: 0px;text-align: center;line-height:40px;color: #333;background:#ddd;outline:none;border:1px solid #333;text-decoration: none;position: absolute;right: 0px;bottom: 0px;}}
 
 
 /*修改的样式*/
@@ -117,3 +118,32 @@ form,.am-cf,.partner{max-width:640px;margin:20px auto ;}
 .am-nav-tabs>li>a,.am-nav-tabs.am-nav-justify>li>a,.am-nav-tabs.am-nav-justify>.am-active>a,.am-nav-tabs>li.am-active>a, .am-nav-tabs>li.am-active>a:focus, .am-nav-tabs>li.am-active>a:hover {border: none; }
 	}
 
+.check-true{
+	display: inline-block;	
+	position: absolute;
+	top: 10px;
+	left: 275px;
+	height: 25px;
+	width: 25px;
+	background: url(../images/check-true.png);
+}
+
+.check-false{
+	display: inline-block;	
+	position: absolute;
+	top: 10px;
+	left: 275px;
+	height: 25px;
+	width: 25px;
+	background: url(../images/check-false.png);
+}
+
+.check-warning{
+	color: red;
+	font-size: 12px;
+	text-indent: 10px;
+    line-height: 18px;
+}
+.iconImg{
+	margin-top: 12px;	
+}

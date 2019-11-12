@@ -28,7 +28,6 @@ spring:
     username: root
     password: 
     
-      
 #properties文件格式
 #srping.mvc.view.prefix=/
 #spring.mvc.view.suffix=.jsp

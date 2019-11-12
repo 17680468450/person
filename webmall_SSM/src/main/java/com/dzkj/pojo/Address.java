@@ -1,48 +1,40 @@
 package com.dzkj.pojo;
 
-import java.sql.ResultSet;
+import java.io.Serializable;
 
-public class Address {
-	private int a_id;
-	private int u_id;
-	private int a_status;
+import javax.persistence.Id;
+
+public class Address implements Serializable{
+	@Id
+	private Integer a_id;
+	private Integer u_id;
+	private Integer a_status;
 	private String a_phone;
 	private String a_consigneename;
-	private String a_consigneeaddress;
+	private String a_province;
+	private String a_city;
+	private String a_area;
+	private String a_details;
 	
 	public Address() {
 	}
-	public Address(ResultSet rs){
-		try {
-			this.a_id = rs.getInt("a_id");
-			this.u_id = rs.getInt("u_id");
-			this.a_status = rs.getInt("a_status");
-			this.a_phone = rs.getString("a_phone");
-			this.a_consigneename = rs.getString("a_consigneename");
-			this.a_consigneeaddress = rs.getString("a_consigneeaddress");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 	
-	
-	
-	public int getA_id() {
+	public Integer getA_id() {
 		return a_id;
 	}
-	public void setA_id(int a_id) {
+	public void setA_id(Integer a_id) {
 		this.a_id = a_id;
 	}
-	public int getU_id() {
+	public Integer getU_id() {
 		return u_id;
 	}
-	public void setU_id(int u_id) {
+	public void setU_id(Integer u_id) {
 		this.u_id = u_id;
 	}
-	public int getA_status() {
+	public Integer getA_status() {
 		return a_status;
 	}
-	public void setA_status(int a_status) {
+	public void setA_status(Integer a_status) {
 		this.a_status = a_status;
 	}
 	public String getA_consigneename() {
@@ -51,17 +43,43 @@ public class Address {
 	public void setA_consigneename(String a_consigneename) {
 		this.a_consigneename = a_consigneename;
 	}
-	public String getA_consigneeaddress() {
-		return a_consigneeaddress;
-	}
-	public void setA_consigneeaddress(String a_consigneeaddress) {
-		this.a_consigneeaddress = a_consigneeaddress;
-	}
 	public String getA_phone() {
 		return a_phone;
 	}
 	public void setA_phone(String a_phone) {
 		this.a_phone = a_phone;
+	}
+
+	public String getA_province() {
+		return a_province;
+	}
+
+	public void setA_province(String a_province) {
+		this.a_province = a_province;
+	}
+
+	public String getA_city() {
+		return a_city;
+	}
+
+	public void setA_city(String a_city) {
+		this.a_city = a_city;
+	}
+
+	public String getA_area() {
+		return a_area;
+	}
+
+	public void setA_area(String a_area) {
+		this.a_area = a_area;
+	}
+
+	public String getA_details() {
+		return a_details;
+	}
+
+	public void setA_details(String a_details) {
+		this.a_details = a_details;
 	}
 	
 }

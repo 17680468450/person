@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="utf-8">
@@ -24,65 +24,7 @@
 
 <body>
 	<!--头 -->
-	<header> <article>
-	<div class="mt-logo">
-		<!--顶部导航条 -->
-		<div class="am-container header">
-			<ul class="message-l">
-				<div class="topMessage">
-					<div class="menu-hd">
-						<a href="#" target="_top" class="h">亲，请登录</a> <a href="#"
-							target="_top">免费注册</a>
-					</div>
-				</div>
-			</ul>
-			<ul class="message-r">
-				<div class="topMessage home">
-					<div class="menu-hd">
-						<a href="#" target="_top" class="h">商城首页</a>
-					</div>
-				</div>
-				<div class="topMessage my-shangcheng">
-					<div class="menu-hd MyShangcheng">
-						<a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a>
-					</div>
-				</div>
-				<div class="topMessage mini-cart">
-					<div class="menu-hd">
-						<a id="mc-menu-hd" href="#" target="_top"><i
-							class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong
-							id="J_MiniCartNum" class="h">0</strong></a>
-					</div>
-				</div>
-				<div class="topMessage favorite">
-					<div class="menu-hd">
-						<a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a>
-					</div>
-			</ul>
-		</div>
-
-		<!--悬浮搜索框-->
-
-		<div class="nav white">
-			<div class="logoBig">
-				<li><img src="../images/logobig.png" /></li>
-			</div>
-
-			<div class="search-bar pr">
-				<a name="index_none_header_sysc" href="#"></a>
-				<form>
-					<input id="searchInput" name="index_none_header_sysc" type="text"
-						placeholder="搜索" autocomplete="off"> <input
-						id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
-						type="submit">
-				</form>
-			</div>
-		</div>
-
-		<div class="clear"></div>
-	</div>
-	</div>
-	</article> </header>
+	<header> <div th:include="home/header :: header"></div> </header>
 	<div class="nav-table">
 		<div class="long-title">
 			<span class="all-goods">全部分类</span>
@@ -165,13 +107,13 @@
 							<div class="order-address">
 								<div class="icon-add"></div>
 								<p class="new-tit new-p-re">
-									<span class="new-txt">小叮当</span> <span class="new-txt-rd2">159****1622</span>
+									<span class="new-txt" th:text="${orderall.oTotal.a_consigneename}">小叮当</span> <span class="new-txt-rd2" th:text="${orderall.oTotal.a_phone}">159****1622</span>
 								</p>
 								<div class="new-mu_l2a new-p-re">
 									<p class="new-mu_l2cw">
-										<span class="title">收货地址：</span> <span class="province">湖北</span>省
-										<span class="city">武汉</span>市 <span class="dist">洪山</span>区 <span
-											class="street">雄楚大道666号(中南财经政法大学)</span>
+										<span class="title">收货地址：</span> <span class="province" th:text="${orderall.oTotal.a_province}">湖北</span>省
+										<span class="city" th:text="${orderall.oTotal.a_city}">武汉</span>市 <span class="dist" th:text="${orderall.oTotal.a_area}">洪山</span>区 <span
+											class="street" th:text="${orderall.oTotal.a_details}">雄楚大道666号(中南财经政法大学)</span>
 									</p>
 								</div>
 							</div>
@@ -205,110 +147,159 @@
 
 						<div class="order-main">
 
-							<div class="order-status3">
-								<div class="order-title">
-									<div class="dd-num">
-										订单编号：<a href="javascript:;">1601430</a>
-									</div>
-									<span>成交时间：2015-12-20</span>
-									<!--    <em>店铺：小桔灯</em>-->
-								</div>
-								<div class="order-content">
-									<div class="order-left">
-										<ul class="item-list">
-											<li class="td td-item">
-												<div class="item-pic">
-													<a href="#" class="J_MakePoint"> <img
-														src="../images/kouhong.jpg_80x80.jpg"
-														class="itempic J_ItemImg">
-													</a>
+										<!--交易成功-->
+										<div id="delall" class="order-status3" th:if="${orderall.oTotal.t_state} == 1">
+											<div class="order-title">
+												<div class="dd-num">
+													订单编号：
+													<a href="javascript:;" th:text="${orderall.oTotal.o_bh}"></a>
 												</div>
-												<div class="item-info">
-													<div class="item-basic-info">
-														<a href="#">
-															<p>美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
-															<p class="info-little">
-																颜色：12#川南玛瑙 <br />包装：裸装
-															</p>
-														</a>
-													</div>
-												</div>
-											</li>
-											<li class="td td-price">
-												<div class="item-price">333.00</div>
-											</li>
-											<li class="td td-number">
-												<div class="item-number">
-													<span>×</span>2
-												</div>
-											</li>
-											<li class="td td-operation">
-												<div class="item-operation">退款/退货</div>
-											</li>
-										</ul>
-
-										<ul class="item-list">
-											<li class="td td-item">
-												<div class="item-pic">
-													<a href="#" class="J_MakePoint"> <img
-														src="../images/62988.jpg_80x80.jpg"
-														class="itempic J_ItemImg">
-													</a>
-												</div>
-												<div class="item-info">
-													<div class="item-basic-info">
-														<a href="#">
-															<p>礼盒袜子女秋冬 纯棉袜加厚 韩国可爱</p>
-															<p class="info-little">
-																颜色分类：李清照 <br />尺码：均码
-															</p>
-														</a>
-													</div>
-												</div>
-											</li>
-											<li class="td td-price">
-												<div class="item-price">333.00</div>
-											</li>
-											<li class="td td-number">
-												<div class="item-number">
-													<span>×</span>2
-												</div>
-											</li>
-											<li class="td td-operation">
-												<div class="item-operation">退款/退货</div>
-											</li>
-										</ul>
-
-									</div>
-									<div class="order-right">
-										<li class="td td-amount">
-											<div class="item-amount">
-												合计：676.00
-												<p>
-													含运费：<span>10.00</span>
-												</p>
+												<span th:text="'成交时间：'+${orderall.oTotal.t_time}">2015-12-20</span>
+												<!--    <em>店铺：小桔灯</em>-->
 											</div>
-										</li>
-										<div class="move-right">
-											<li class="td td-status">
-												<div class="item-status">
-													<p class="Mystatus">卖家已发货</p>
-													<p class="order-info">
-														<a href="logistics.jsp">查看物流</a>
-													</p>
-													<p class="order-info">
-														<a href="#">延长收货</a>
-													</p>
+											<div class="order-content">
+												<div class="order-left">
+													<ul class="item-list" th:each="about : ${orderall.oAbouts}">
+														<li class="td td-item">
+															<div class="item-pic">
+																<a href="#" class="J_MakePoint"> <img
+																	th:src="@{${about.commodity.s_url}}"
+																	class="itempic J_ItemImg">
+																</a>
+															</div>
+															<div class="item-info">
+																<div class="item-basic-info">
+																	<a href="#">
+																		<p th:text="${about.commodity.s_name}">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+																	</a>
+																</div>
+															</div>
+														</li>
+														<li class="td td-price">
+															<div class="item-price" th:text="${about.commodity.s_price}">333.00</div>
+														</li>
+														<li class="td td-number">
+															<div class="item-number">
+																<span th:text="'×'+${about.sc_number}"></span>
+															</div>
+														</li>
+														<li class="td td-operation">
+															<div class="item-operation"></div>
+														</li>
+													</ul>
 												</div>
-											</li>
-											<li class="td td-change">
-												<div class="am-btn am-btn-danger anniu">确认收货</div>
-											</li>
+												<div class="order-right">
+													<li class="td td-amount">
+														<div class="item-amount" th:text="'合计：'+${orderall.oTotal.t_price}">
+															合计：676.00
+														</div>
+													</li>
+													<div class="move-right">
+														<li class="td td-status">
+															<div class="item-status">
+																<p class="Mystatus">交易成功</p>
+																<p class="order-info">
+																	<a th:href="@{/orderinfo(o_bh=${orderall.oTotal.o_bh})}">订单详情</a>
+																</p>
+															</div>
+														</li>
+														<li class="td td-change">
+															<div id="delorder" class="am-btn am-btn-danger anniu">删除订单</div>
+														</li>
+													</div>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
+										<script type="text/javascript">
+										   $("#delorder").each(function(){
+											   $(this).click(function(){
+												   var list = $(this).parents(".order-status3");
+												   var o_bh = $(this).parents(".order-status3").find("[name='bh']").text();
+												   $.post("/delorder",{"o_bh":o_bh},function(data){
+													   if(data){
+														   $(list).remove();
+													   }
+												   })
+											   })
+										   })
+										  
+										</script>
 
-							</div>
+										<!--不同状态订单-->
+										<div class="order-status3" th:if="${orderall.oTotal.t_state} == 0">
+											<div class="order-title">
+												<div class="dd-num">
+													订单编号：
+													<a href="javascript:;" th:text="${orderall.oTotal.o_bh}"></a>
+												</div>
+												<span th:text="'成交时间：'+${orderall.oTotal.t_time}">2015-12-20</span>
+												<!--    <em>店铺：小桔灯</em>-->
+											</div>
+											<div class="order-content">
+												<div class="order-left">
+													<ul class="item-list" th:each="about : ${orderall.oAbouts}">
+														<li class="td td-item">
+															<div class="item-pic">
+																<a href="#" class="J_MakePoint"> <img
+																	th:src="@{${about.commodity.s_url}}"
+																	class="itempic J_ItemImg">
+																</a>
+															</div>
+															<div class="item-info">
+																<div class="item-basic-info">
+																	<a href="#">
+																		<p th:text="${about.commodity.s_name}">美康粉黛醉美唇膏 持久保湿滋润防水不掉色</p>
+																	</a>
+																</div>
+															</div>
+														</li>
+														<li class="td td-price">
+															<div class="item-price" th:text="${about.commodity.s_price}">333.00</div>
+														</li>
+														<li class="td td-number">
+															<div class="item-number">
+																<span th:text="'×'+${about.sc_number}"></span>
+															</div>
+														</li>
+														<li class="td td-operation">
+															<div class="item-operation"></div>
+														</li>
+													</ul>
+												</div>
+												<div class="order-right">
+													<li class="td td-amount">
+														<div class="item-amount" th:text="'合计：'+${orderall.oTotal.t_price}">
+															合计：676.00
+														</div>
+													</li>
+													<div class="move-right">
+														<li class="td td-status">
+															<div class="item-status">
+																<p class="Mystatus">未付款</p>
+																<p class="order-info">
+																	<a th:href="@{/orderinfo(o_bh=${orderall.oTotal.o_bh})}">订单详情</a>
+																</p>
+															</div>
+														</li>
+														<li class="td td-change">
+															<div id="payorder" class="am-btn am-btn-danger anniu">现在付款</div>
+														</li>
+													</div>
+												</div>
+											</div>
+								<script type="text/javascript">
+								  $("#payorder").each(function(){
+									  $(this).click(function(){
+										  var o_bh = $(this).parents(".order-status3").find("[name='bh']").text();
+										  location.href = "/payorder?o_bh="+o_bh;
+									  })
+									  
+								  })
+								  
+								</script>
+
+										</div>
+
 						</div>
 					</div>
 				</div>
@@ -329,70 +320,8 @@
 					</p>
 				</div>
 			</div>
-
 		</div>
-		<aside class="menu">
-		<ul>
-			<li class="person active"><a href="index.jsp"><i
-					class="am-icon-user"></i>个人中心</a></li>
-			<li class="person">
-				<p>
-					<i class="am-icon-newspaper-o"></i>个人资料
-				</p>
-				<ul>
-					<li><a href="information.jsp">个人信息</a></li>
-					<li><a href="safety.jsp">安全设置</a></li>
-					<li><a href="address.jsp">地址管理</a></li>
-					<li><a href="cardlist.jsp">快捷支付</a></li>
-				</ul>
-			</li>
-			<li class="person">
-				<p>
-					<i class="am-icon-balance-scale"></i>我的交易
-				</p>
-				<ul>
-					<li><a href="order.jsp">订单管理</a></li>
-					<li><a href="change.jsp">退款售后</a></li>
-					<li><a href="comment.jsp">评价商品</a></li>
-				</ul>
-			</li>
-			<li class="person">
-				<p>
-					<i class="am-icon-dollar"></i>我的资产
-				</p>
-				<ul>
-					<li><a href="points.jsp">我的积分</a></li>
-					<li><a href="coupon.jsp">优惠券 </a></li>
-					<li><a href="bonus.jsp">红包</a></li>
-					<li><a href="walletlist.jsp">账户余额</a></li>
-					<li><a href="bill.jsp">账单明细</a></li>
-				</ul>
-			</li>
-
-			<li class="person">
-				<p>
-					<i class="am-icon-tags"></i>我的收藏
-				</p>
-				<ul>
-					<li><a href="collection.jsp">收藏</a></li>
-					<li><a href="foot.jsp">足迹</a></li>
-				</ul>
-			</li>
-
-			<li class="person">
-				<p>
-					<i class="am-icon-qq"></i>在线客服
-				</p>
-				<ul>
-					<li><a href="consultation.jsp">商品咨询</a></li>
-					<li><a href="suggest.jsp">意见反馈</a></li>
-
-					<li><a href="news.jsp">我的消息</a></li>
-				</ul>
-			</li>
-		</ul>
-
-		</aside>
+		<div th:include="person/sidebar :: sidebar"></div>
 	</div>
 
 </body>

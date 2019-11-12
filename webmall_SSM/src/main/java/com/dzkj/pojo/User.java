@@ -1,13 +1,14 @@
 package com.dzkj.pojo;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 
 import javax.persistence.Id;
 
-public class User {
+public class User implements Serializable{
 	@Id
-	private int u_id;
-	private int u_pwd;
+	private Integer u_id;
+	private String u_pwd;
 	private String u_nickname;
 	private String u_balance;
 	private String u_phone; 
@@ -18,34 +19,16 @@ public class User {
 	private String u_name;
 	private String u_paypassword;
 	
-	public User(ResultSet rs){
-		try {
-			u_id = rs.getInt("u_id");
-			u_pwd = rs.getInt("u_pwd");
-			u_nickname = rs.getString("u_nickname");
-			u_balance = rs.getString("u_balance");
-			u_phone = rs.getString("u_phone");
-			u_email = rs.getString("u_email");
-			u_sex = rs.getString("u_sex");
-			u_birth = rs.getString("u_birth");
-			u_url = rs.getString("u_url");
-			u_name = rs.getString("u_name");
-			u_paypassword = rs.getString("u_paypassword");
-		} catch (Exception e) {	
-			e.printStackTrace();
-		}
-	}
-	
-	public int getU_id() {
+	public Integer getU_id() {
 		return u_id;
 	}
-	public void setU_id(int u_id) {
+	public void setU_id(Integer u_id) {
 		this.u_id = u_id;
 	}
-	public int getU_pwd() {
+	public String getU_pwd() {
 		return u_pwd;
 	}
-	public void setU_pwd(int u_pwd) {
+	public void setU_pwd(String u_pwd) {
 		this.u_pwd = u_pwd;
 	}
 	public String getU_nickname() {

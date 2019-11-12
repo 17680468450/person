@@ -1,42 +1,35 @@
 package com.dzkj.pojo;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 
-public class Shopcart {
-    private int id;
-    private int u_id;
-    private Commodity commodity;
-    private int sc_number;
-	private int sc_price;
-	
-	public Shopcart(ResultSet rs){
-		try {
-			id = rs.getInt("id");
-			u_id = rs.getInt("u_id");
-			sc_number = rs.getInt("sc_number");
-			sc_price = rs.getInt("sc_price");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+import javax.persistence.Id;
 
+public class Shopcart  implements Serializable{
+	@Id
+    private Integer id;
+    private Integer u_id;
+    private Commodity commodity;
+    private Integer sc_number;
+	private Integer sc_price;
+	
 	public Shopcart() {
 		super();
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public int getU_id() {
+	public Integer getU_id() {
 		return u_id;
 	}
 
-	public void setU_id(int u_id) {
+	public void setU_id(Integer u_id) {
 		this.u_id = u_id;
 	}
 
@@ -48,20 +41,26 @@ public class Shopcart {
 		this.commodity = commodity;
 	}
 
-	public int getSc_number() {
+	public Integer getSc_number() {
 		return sc_number;
 	}
 
-	public void setSc_number(int sc_number) {
+	public void setSc_number(Integer sc_number) {
 		this.sc_number = sc_number;
 	}
 
-	public int getSc_price() {
+	public Integer getSc_price() {
 		return sc_price;
 	}
 
-	public void setSc_price(int sc_price) {
+	public void setSc_price(Integer sc_price) {
 		this.sc_price = sc_price;
+	}
+
+	@Override
+	public String toString() {
+		return "Shopcart [id=" + id + ", u_id=" + u_id + ", commodity=" + commodity + ", sc_number=" + sc_number
+				+ ", sc_price=" + sc_price + "]";
 	}
 
 }
