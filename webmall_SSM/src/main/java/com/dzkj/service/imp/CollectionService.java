@@ -34,7 +34,7 @@ public class CollectionService implements ICollectionService{
 	}
 
 	@Override
-	public Foot findone(Collection collection) {
+	public Collection findone(Collection collection) {
 		return collectionMapper.findone(collection);
 	}
 }

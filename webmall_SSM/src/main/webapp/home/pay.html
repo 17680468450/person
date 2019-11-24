@@ -32,18 +32,7 @@
 				} 
 			});
 			 
-			 var address = "[[${add}]]";
-			 if(address == "请先添加地址"){
-				 $(".theme-popover-mask").css({"display":"block","height":"727px"});
-				 $(".theme-popover").css({"overflow":"hidden","display":"block"});
-				 $.post("getadress",null,function(data){
-						if(data < 0){
-							$("#cancel").attr("disabled","disabled");
-						}else{
-							$("#cancel").removeAttr("disabled");
-						}
-					});
-			 }
+			
 			 /* $(".theme-popover-mask").attr("theme-popover-mask")
 			 $(".theme-popover").attr("theme-popover") */
 			
@@ -62,9 +51,6 @@
 		<div class="paycont">
 			<div class="address">
 				<h3>确认收货地址</h3>
-				<div class="control">
-					<div class="tc-btn createAddr theme-login am-btn am-btn-danger">使用新地址</div>
-				</div>
 				<div class="clear"></div>
 				
 				<ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails" th:if="${add == '请先添加地址'}">
@@ -206,10 +192,7 @@
 										<div class="item-amount ">
 											<span class="phone-title">购买数量</span>
 											<div class="sl" >
-												<input id="repertory" type="hidden" th:value="${order.commodity.s_repertory}">
-												<input class="min am-btn" name="minus" type="button" value="-" />
-												<input class="text_box" name="sc_number" type="text" th:value="${order.sc_number}" style="width: 30px;" /> 
-												<input class="add am-btn" name="plus" type="button" value="+"  />
+												<em class="J_Price price-now" th:text="${order.sc_number}"></em>
 											</div>
 								
 										</div>
@@ -324,9 +307,14 @@
 						//提交按鈕
 						 $("#J_Go").click(function(){
 								var val =  $("#zfb").attr("class");
-								
+								var add = [[${add}]];
 								var a_id = $(".id").val();
 								var o_bh = [[${orderall.oTotal.o_bh}]];
+								if(add == "请先添加地址"){
+									alert(add);
+									location.href = "/dz";
+									return;
+								}
 								if(val != "pay taobao selected"){
 									alert("请先选择支付方式");
 								}else{

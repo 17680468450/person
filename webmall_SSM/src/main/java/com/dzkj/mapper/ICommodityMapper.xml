@@ -27,6 +27,6 @@
      select * from commodity where s_id=#{s_id}
   </select>
   <select id="findbysale" resultType="com.dzkj.pojo.Commodity">
-    select * from commodity order by s_sales
+    select * from commodity order by s_sales desc
   </select>
 </mapper>

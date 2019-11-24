@@ -9,5 +9,5 @@ public interface ICollectionService {
 	   boolean add(Collection collection);
 	   List<Collection> findbyu_id(Integer u_id);
 	   boolean del(Integer id);
-	   Foot findone(Collection collection);
+	   Collection findone(Collection collection);
 }

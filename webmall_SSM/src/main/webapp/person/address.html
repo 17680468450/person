@@ -109,13 +109,13 @@
 							var addressid = $(this).prev().val();
 							$(this).prev().prev().val("1");
 							var def = $(this).prev().prev().val();
-							$.post("def",{"addressid":addressid,"def":def});
+							$.post("def",{"a_id":addressid,"a_status":def});
 							$("[name=addressida]").each(function(){
 								if($(this).val() != addressid){
 									var addressid2 = $(this).val();
 									$(this).prev().val("0");
 									var def2 = $(this).prev().val();
-									$.post("def",{"addressid":addressid2,"def":def2});
+									$.post("def",{"a_id":addressid2,"a_status":def2});
 								}
 							});
 						});
@@ -139,7 +139,7 @@
 
 							<div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;" id="ss">
 								<form class="am-form am-form-horizontal" action="skip" method="post" id="addAdress">
-									<input type="hidden" class="a_id" name="addressid" value="">
+									<input type="hidden" class="a_id" name="a_id" value="">
 									<input type="hidden" name="u_id" th:value="${session.user.u_id}">
 									<input type="hidden" class="a_def" th:if="${add == '请先添加地址'}" value="1"  name="a_status">
 									<input type="hidden" class="a_def" th:if="${add != '请先添加地址'}" value="0"  name="a_status">
@@ -235,29 +235,32 @@
 										form.submit();
 									}
 								});
-									
-								$("[name=compile]").click(function(){
-									var addressid = $(this).parent().prevAll(".a_id").val();
-									var user = $(this).parent().prevAll("p").find(".new-txt").text();
-									var phone = $(this).parent().prevAll("p").find(".new-txt-rd2").text();
-									var province = $(this).parent().prevAll("div").children().find(".province").text();
-									var city = $(this).parent().prevAll("div").children().find(".city").text();
-									var dist = $(this).parent().prevAll("div").children().find(".dist").text();
-									var street = $(this).parent().prevAll("div").children().find(".street").text();
-									var def = $(this).parent().prevAll(".a_def").val();
-									
-									$("#ss").children().find(".a_id").val(addressid);
-									$("#ss").children().children().children().find(".name").val(user);
-									$("#ss").children().children().children().find(".aphone").val(phone);
-									$("#ss").children().children().children().find(".province").val(province);
-									$("#ss").children().children().children().find(".city1").text(city);
-									$("#ss").children().children().children().find(".town1").text(dist);
-									$("#ss").children().children().children().find(".city1").val(city);
-									$("#ss").children().children().children().find(".town1").val(dist)
-									$("#ss").children().children().children().find(".street").val(street);
-									$("#ss").children().children().children().find(".a_def").val(def);
-									
-								});
+								$("[name=compile]").each(function(){
+									$(this).click(function(){
+										var addressid = $(this).parent().prevAll(".a_id").val();
+										var user = $(this).parent().prevAll("p").find(".new-txt").text();
+										var phone = $(this).parent().prevAll("p").find(".new-txt-rd2").text();
+										var province = $(this).parent().prevAll("div").children().find(".province").text();
+										var city = $(this).parent().prevAll("div").children().find(".city").text();
+										var dist = $(this).parent().prevAll("div").children().find(".dist").text();
+										var street = $(this).parent().prevAll("div").children().find(".street").text();
+										var def = $(this).parent().prevAll(".a_def").val();
+										
+										$("#ss").children().find(".a_id").val(addressid);
+										$("#ss").children().children().children().find(".name").val(user);
+										$("#ss").children().children().children().find(".aphone").val(phone);
+										$("#ss").children().children().children().find(".province").val(province);
+										$("#ss").children().children().children().find(".city1").text(city);
+										$("#ss").children().children().children().find(".town1").text(dist);
+										$("#ss").children().children().children().find(".city1").val(city);
+										$("#ss").children().children().children().find(".town1").val(dist)
+										$("#ss").children().children().children().find(".street").val(street);
+										$("#ss").children().find(".a_def").val(def);
+										
+									});
+								})
+								
+								
 								</script>
 							</div>
 

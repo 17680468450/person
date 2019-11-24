@@ -43,7 +43,8 @@ public class AddressController {
 				return "forward:addAddress";
 			}
 		}else {//修改
-			return "forward:updata";
+			boolean updata = addressService.update(address);
+			return "redirect:dz";
 		}
 	}
 	
@@ -55,7 +56,6 @@ public class AddressController {
 	@RequestMapping("/addAddress")
 	public String addAddress(Address address) {
 		boolean add;
-		System.out.println(address.getA_status());
 		User user = (User) request.getSession().getAttribute("user");
 		Address address2 = new Address();
 		address2.setU_id(user.getU_id());
@@ -115,8 +115,9 @@ public class AddressController {
 	 */
 	@RequestMapping("/def")
 	@ResponseBody
-	public String def(Address address) {
-		System.out.println("修改");
+	public String def(Integer a_id, Integer a_status) {
+		Address address = addressService.findbyid(a_id);
+		address.setA_status(a_status);
 		boolean updata = addressService.update(address);
 		if(updata) {
 			return "1";
@@ -131,15 +132,10 @@ public class AddressController {
 	 * @param address
 	 * @return
 	 */
-	@RequestMapping("/updata")
-	public String update(Address address) {
-		System.out.println("修改");
-		boolean updata = addressService.update(address);
-		if(updata) {
-			return "forward:dz";
-		}else {
-			return "forward:dz";
-		}
-		
-	}
+//	@RequestMapping("/updata")
+//	public String update(Address address) {
+//		System.out.println("修改");
+//		
+//		
+//	}
 }

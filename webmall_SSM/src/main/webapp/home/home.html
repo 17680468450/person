@@ -157,8 +157,8 @@
 								</em>
 							</div>
 							<div class="member-logout">
-								<a class="am-btn-warning btn" th:href="@{/login}">登录</a>
-								<a class="am-btn-warning btn" th:href="@{/register}">注册</a>
+								<a class="am-btn-warning btn" th:href="@{/home/login}">登录</a>
+								<a class="am-btn-warning btn" th:href="@{/home/register}">注册</a>
 							</div>
 							<div class="clear"></div>	
 						</div>	
@@ -215,7 +215,7 @@
 								<a th:href="@{/classify(s_three_id=3)}">提拉米苏</a>
 							</div>
 							<span class="more ">
-                    <a class="more-link " href="# ">更多美味</a>
+                    <a class="more-link " href="/classify">更多美味</a>
                         </span>
 						</div>
 					</div>
@@ -224,7 +224,7 @@
 							<li th:each="commo : ${arr_one}">
 								<div class="list ">
 									<a th:href="@{/lookshop(s_id=${commo.s_id})}">
-										<img th:src="@{${commo.s_url}}" />
+										<img th:src="@{${commo.s_url}}" style="width: 220px;height: 240px"/>
 										<div class="pro-title " th:text="${commo.s_name}"></div>
 										<span class="e-price " th:text="'￥'+${commo.s_price}"></span>
 									</a>
@@ -243,7 +243,7 @@
 								<a th:href="@{/classify(s_three_id=15)}">凤爪</a>
 							</div>
 							<span class="more ">
-                    <a class="more-link " href="# ">更多美味</a>
+                    <a class="more-link " href="/classify">更多美味</a>
                         </span>
 						</div>
 					</div>
@@ -252,7 +252,7 @@
 							<li th:each="commo : ${arr_two}">
 								<div class="list ">
 									<a th:href="@{/lookshop(s_id=${commo.s_id})}">
-										<img th:src="@{${commo.s_url}}" />
+										<img th:src="@{${commo.s_url}}" style="width: 220px;height: 240px"/>
 										<div class="pro-title " th:text="${commo.s_name}"></div>
 										<span class="e-price " th:text="'￥'+${commo.s_price}"></span>
 									</a>
@@ -271,7 +271,7 @@
 								<a th:href="@{/classify(s_three_id=21)}">巧克力</a>
 							</div>
 							<span class="more ">
-                    <a class="more-link " href="">更多美味</a>
+                    <a class="more-link " href="/classify">更多美味</a>
                         </span>
 						</div>
 					</div>
@@ -280,7 +280,7 @@
 							<li th:each="commo : ${arr_three}">
 								<div class="list ">
 									<a th:href="@{/lookshop(s_id=${commo.s_id})}">
-										<img th:src="@{${commo.s_url}}" />
+										<img th:src="@{${commo.s_url}}" style="width: 220px;height: 240px"/>
 										<div class="pro-title " th:text="${commo.s_name}"></div>
 										<span class="e-price " th:text="'￥'+${commo.s_price}"></span>
 									</a>

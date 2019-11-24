@@ -64,7 +64,7 @@
 							</li>
 							<li class="td td-item">
 								<div class="item-pic">
-									<a th:href="@{/lookshop(s_id=${shop.commodity.s_id}}" target="_blank"
+									<a target="_blank"
 										class="J_MakePoint" 
 										data-point="tbcart.8.12"> 
 										<img th:src="@{${shop.commodity.s_url}}" class="itempic J_ItemImg">
@@ -72,7 +72,7 @@
 								</div>
 								<div class="item-info">
 									<div class="item-basic-info">
-										<a th:href="@{/lookshop(s_id=${shop.commodity.s_id}}" target="_blank"
+										<a target="_blank"
 											class="item-title J_MakePoint" data-point="tbcart.8.11" th:text="${shop.commodity.s_name}"></a>
 									</div>
 								</div>
@@ -350,12 +350,12 @@
 	$(".btn-fav").click(function() {
 		add = $(this).parents("ul");
 		var sc_id = add.find("[name='sc_id']").val();
-		if(confirm("是否确认删除")){
+		if(confirm("是否确认收藏")){
 			$.post("/addcollection",{"sc_id":sc_id},function(data){
 				if(data){
 					alert("添加成功");
 				}else{
-					alert("添加失败");
+					alert("商品已收藏");
 				}
 				
 			});

@@ -10,5 +10,5 @@ import tk.mybatis.mapper.common.Mapper;
 public interface ICollectionMapper extends Mapper<Collection>{
 	  List<Collection> findbyu_id(Integer u_id);
 	  Integer add(Collection collection);
-	  Foot findone(Collection collection);
+	  Collection findone(Collection collection);
 }
